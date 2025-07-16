@@ -1,5 +1,258 @@
 [
   {
+    "audit_id": "2566f779-12e2-4dda-be74-bf9da84d2f8e",
+    "client_name": "kapsloc",
+    "website_url": "https://kapsloc.com/",
+    "analysis_date": "2025-07-16T14:55:23.258Z",
+    "performance_score": 60,
+    "files_analyzed": [
+      "kapslocrapport_aperçu_problemes.csv",
+      "kapslocmeta_description_tous.csv",
+      "kapsloctitle_des_pages_tous.csv",
+      "kapsloccodesréponses.csv",
+      "sécukapsloc.csv",
+      "kapsloc.csv"
+    ],
+    "resume_executif": "L'audit SEO du site Kapsloc met en évidence plusieurs aspects nécessitant une amélioration, notamment des problèmes d'indexabilité, des erreurs de contenu manquant et des paramètres de sécurité insuffisants. Bien que certains problèmes aient un impact élevé sur le référencement, d'autres représentent des opportunités d'optimisation. Le site présente également des atouts, comme une vitesse de chargement correcte pour certains contenus.",
+    "score_performance": 60,
+    "problemes_prioritaires": [
+      {
+        "categorie": "Indexabilité",
+        "probleme": "Pages canonisées non indexables",
+        "impact": "Élevé",
+        "solution": "Assurez-vous que les URL canoniques pointent vers des pages indexables pour éviter qu'elles soient ignorées par les moteurs de recherche."
+      },
+      {
+        "categorie": "Contenu",
+        "probleme": "Title des pages manquant",
+        "impact": "Élevé",
+        "solution": "Rédigez des titres de page uniques et descriptifs pour chaque URL indexable."
+      },
+      {
+        "categorie": "Contenu",
+        "probleme": "Meta description manquante",
+        "impact": "Faible",
+        "solution": "Rédigez des méta-descriptions uniques pour les pages clés."
+      },
+      {
+        "categorie": "Sécurité",
+        "probleme": "En-tête HSTS manquant",
+        "impact": "Faible",
+        "solution": "Implémentez l'en-tête HSTS pour forcer l'accès HTTPS."
+      }
+    ],
+    "recommandations": [
+      {
+        "priorite": "Haute",
+        "action": "Corriger les problèmes d'indexabilité des pages canonisées.",
+        "delai": "2 semaines",
+        "ressources": "Développeur web"
+      },
+      {
+        "priorite": "Moyenne",
+        "action": "Ajouter des titres et des meta descriptions pour les pages manquantes.",
+        "delai": "1 mois",
+        "ressources": "Équipe SEO et rédacteur"
+      },
+      {
+        "priorite": "Basse",
+        "action": "Mettre en place les en-têtes de sécurité manquants.",
+        "delai": "1 mois",
+        "ressources": "Développeur web"
+      }
+    ],
+    "points_forts": [
+      "Bonne structure de liens internes.",
+      "Vitesse de chargement correcte pour les contenus statiques."
+    ],
+    "axes_amelioration": [
+      "Améliorer la lisibilité du contenu.",
+      "Optimiser les images volumineuses pour réduire les temps de chargement.",
+      "Mettre en place des en-têtes de sécurité supplémentaires."
+    ]
+  },
+  {
+    "audit_id": "9a714402-e1c8-4822-9d53-218bf0e2e198",
+    "client_name": "kapsloc",
+    "website_url": "https://kapsloc.com/",
+    "analysis_date": "2025-07-16T14:43:38.982Z",
+    "performance_score": 65,
+    "files_analyzed": [
+      "kapslocrapport_aperçu_problemes.csv",
+      "kapslocmeta_description_tous.csv",
+      "kapsloctitle_des_pages_tous.csv",
+      "kapsloccodesréponses.csv",
+      "sécukapsloc.csv",
+      "kapsloc.csv"
+    ],
+    "resume_executif": "Le site Kapsloc présente plusieurs problèmes SEO qui peuvent affecter sa performance en matière de référencement et d'expérience utilisateur. Les principales préoccupations incluent l'absence de métadonnées essentielles telles que les méta-descriptions et les titres de page sur de nombreuses pages indexables, des problèmes de canonisation, et des en-têtes de sécurité manquants. Ces problèmes doivent être abordés pour améliorer la visibilité du site et garantir une expérience utilisateur sécurisée.",
+    "score_performance": 65,
+    "problemes_prioritaires": [
+      {
+        "categorie": "Contenu",
+        "probleme": "Meta description manquante",
+        "impact": "Élevé",
+        "solution": "Rédiger des métadescriptions uniques et descriptives pour toutes les pages indexables."
+      },
+      {
+        "categorie": "Contenu",
+        "probleme": "Title des pages manquantes",
+        "impact": "Élevé",
+        "solution": "Créer des titres de page concis, descriptifs et uniques pour chaque URL indexable."
+      },
+      {
+        "categorie": "Technique",
+        "probleme": "Versions canoniques non indexables",
+        "impact": "Élevé",
+        "solution": "Assurez-vous que les URL canoniques pointent vers des pages indexables."
+      },
+      {
+        "categorie": "Technique",
+        "probleme": "En-tête HSTS manquant",
+        "impact": "Faible",
+        "solution": "Implémenter l'en-tête HSTS sur toutes les pages pour renforcer la sécurité HTTP."
+      }
+    ],
+    "recommandations": [
+      {
+        "priorite": "Haute",
+        "action": "Corriger les problèmes de méta-descriptions et de titres de page manquants.",
+        "delai": "1 mois",
+        "ressources": "Équipe de contenu et SEO"
+      },
+      {
+        "priorite": "Haute",
+        "action": "Corriger les annotations hreflang pour utiliser uniquement les URL canoniques.",
+        "delai": "2 semaines",
+        "ressources": "Développeurs web"
+      },
+      {
+        "priorite": "Moyenne",
+        "action": "Ajouter et configurer les en-têtes de sécurité manquants comme HSTS, X-Frame-Options.",
+        "delai": "1 mois",
+        "ressources": "Équipe technique"
+      }
+    ],
+    "points_forts": [
+      "Le site utilise HTTPS, ce qui garantit une connexion sécurisée.",
+      "Certaines pages clés ont déjà des titres et méta-descriptions bien rédigés."
+    ],
+    "axes_amelioration": [
+      "Optimiser les images volumineuses pour améliorer la vitesse de chargement des pages.",
+      "Améliorer la lisibilité du contenu sur certaines pages pour un meilleur engagement utilisateur.",
+      "S'assurer que toutes les pages importantes sont indexables et correctement canonisées."
+    ]
+  },
+  {
+    "audit_id": "164623ae-36a2-4e43-af2a-5bf392ff80c9",
+    "client_name": "kapsloc",
+    "website_url": "https://kapsloc.com/",
+    "analysis_date": "2025-07-16T14:19:50.082Z",
+    "performance_score": 65,
+    "files_analyzed": [
+      "kapslocrapport_aperçu_problemes.csv",
+      "kapslocmeta_description_tous.csv",
+      "kapsloctitle_des_pages_tous.csv",
+      "kapsloccodesréponses.csv",
+      "sécukapsloc.csv",
+      "kapsloc.csv"
+    ],
+    "resume_executif": "Le site web de Kapsloc présente plusieurs problèmes SEO, notamment des titres de pages et des méta-descriptions manquants, des erreurs de réponse 4xx, et des problèmes de sécurité liés aux en-têtes HTTP. Il existe également des opportunités d'amélioration en termes de lisibilité du contenu et d'optimisation des images. Les recommandations visent principalement à corriger ces problèmes pour améliorer le référencement et l'expérience utilisateur.",
+    "score_performance": 65,
+    "problemes_prioritaires": [
+      {
+        "categorie": "Contenu",
+        "probleme": "Title des pages: Manquant",
+        "impact": "Élevé",
+        "solution": "Rédiger des titres de page concis, descriptifs et uniques pour chaque URL indexable."
+      },
+      {
+        "categorie": "Contenu",
+        "probleme": "Meta description: Manquant",
+        "impact": "Faible",
+        "solution": "Rédiger des méta-descriptions uniques et descriptives sur les pages clés."
+      },
+      {
+        "categorie": "SEO Technique",
+        "probleme": "Codes de réponse: Internes, erreur du client (4xx)",
+        "impact": "Élevé",
+        "solution": "Corriger les liens brisés et rediriger les URL incorrectes."
+      },
+      {
+        "categorie": "SEO Technique",
+        "probleme": "Versions canoniques: Version canonique non indexable",
+        "impact": "Élevé",
+        "solution": "Mettre à jour les URL canoniques pour qu'elles pointent vers des pages indexables."
+      }
+    ],
+    "recommandations": [
+      {
+        "priorite": "Haute",
+        "action": "Corriger les titres de pages et les méta-descriptions manquants.",
+        "delai": "1 semaine",
+        "ressources": "Expert en rédaction SEO"
+      },
+      {
+        "priorite": "Haute",
+        "action": "Corriger les erreurs 4xx et réviser les redirections.",
+        "delai": "2 semaines",
+        "ressources": "Développeur Web"
+      },
+      {
+        "priorite": "Moyenne",
+        "action": "Améliorer la lisibilité du contenu et ajouter du contenu là où il est faible.",
+        "delai": "3 semaines",
+        "ressources": "Rédacteur de contenu"
+      },
+      {
+        "priorite": "Moyenne",
+        "action": "Optimiser la taille des images pour améliorer la vitesse de chargement.",
+        "delai": "2 semaines",
+        "ressources": "Graphiste"
+      }
+    ],
+    "points_forts": [
+      "Le site est bien structuré avec une hiérarchie claire des en-têtes.",
+      "Utilisation efficace de JavaScript et CSS pour le rendu dynamique."
+    ],
+    "axes_amelioration": [
+      "Mettre en œuvre des en-têtes de sécurité HTTP pour renforcer la sécurité du site.",
+      "Assurer la présence de balises méta-robots pour contrôler l'indexation."
+    ]
+  },
+  {
+    "audit_id": "edcc4f97-ee14-46a6-9c75-3fa081de13e2",
+    "client_name": "kapsloc",
+    "website_url": "https://kapsloc.com/",
+    "analysis_date": "2025-07-16T14:06:56.843Z",
+    "performance_score": 0,
+    "files_analyzed": [
+      "kapslocrapport_aperçu_problemes.csv",
+      "kapslocmeta_description_tous.csv",
+      "kapsloctitle_des_pages_tous.csv",
+      "kapsloccodesréponses.csv",
+      "sécukapsloc.csv",
+      "kapsloc.csv"
+    ],
+    "_raw": "```json\n{\n  \"resume_executif\": \"Le site kapsloc.com présente plusieurs problèmes SEO techniques et de contenu qui affectent son indexabilité et ses performances. Les principaux problèmes incluent des métadonnées manquantes, des problèmes de sécurité liés aux en-têtes HTTP, et une utilisation incorrecte des annotations hreflang. Des améliorations sont nécessaires pour optimiser le référencement et la sécurité du site.\",\n  \"score_performance\": 65,\n  \"problemes_prioritaires\": [\n    {\n      \"categorie\": \"SEO technique\",\n      \"probleme\": \"Title des pages: Manquant\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Rédiger des titres de page concis, descriptifs et uniques pour chaque URL indexable.\"\n    },\n    {\n      \"categorie\": \"SEO technique\",\n      \"probleme\": \"Version canonique non indexable\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Assurer que les URL canoniques mènent à des pages indexables précises.\"\n    },\n    {\n      \"categorie\": \"SEO technique\",\n      \"probleme\": \"Hreflang: Ne pas utiliser la version canonique\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Mettre à jour les annotations hreflang pour inclure uniquement les versions canoniques des URL.\"\n    },\n    {\n      \"categorie\": \"Contenu\",\n      \"probleme\": \"Meta description: Manquant\",\n      \"impact\": \"Faible\",\n      \"solution\": \"Rédiger des métadescriptions uniques et descriptives sur les pages clés.\"\n    },\n    {\n      \"categorie\": \"Sécurité\",\n      \"probleme\": \"En-tête HSTS manquant\",\n      \"impact\": \"Faible\",\n      \"solution\": \"Utiliser l'en-tête HSTS sur toutes les pages pour indiquer au navigateur de toujours demander les pages via HTTPS.\"\n    }\n  ],\n  \"recommandations\": [\n    {\n      \"priorite\": \"Haute\",\n      \"action\": \"Corriger les titres de page manquants et ajouter des métadescriptions uniques.\",\n      \"delai\": \"1 mois\",\n      \"ressources\": \"Équipe de contenu\"\n    },\n    {\n      \"priorite\": \"Haute\",\n      \"action\": \"Mettre à jour les annotations hreflang et les versions canoniques.\",\n      \"delai\": \"2 semaines\",\n      \"ressources\": \"Développeur web\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Implémenter les en-têtes de sécurité manquants (HSTS, X-Frame-Options, CSP).\",\n      \"delai\": \"1 mois\",\n      \"ressources\": \"Développeur web\"\n    },\n    {\n      \"priorite\": \"Basse\",\n      \"action\": \"Optimiser les images volumineuses pour améliorer la vitesse des pages.\",\n      \"delai\": \"2 mois\",\n      \"ressources\": \"Designer\"\n    }\n  ],\n  \"points_forts\": [\n    \"Présence de contenu varié et potentiellement engageant.\",\n    \"Structure des URL bien définie.\"\n  ],\n  \"axes_amelioration\": [\n    \"Améliorer la sécurité du site avec des en-têtes HTTP appropriés.\",\n    \"Optimiser les métadonnées pour toutes les pages indexables.\",\n    \"Corriger les erreurs 404 et les problèmes de version canonique.\"\n  ]\n}\n```"
+  },
+  {
+    "audit_id": "7f38a71c-7e79-4c3a-a941-5f01f8fed26f",
+    "client_name": "kapsloc",
+    "website_url": "https://kapsloc.com/",
+    "analysis_date": "2025-07-16T13:56:55.069Z",
+    "performance_score": 0,
+    "files_analyzed": [
+      "kapslocrapport_aperçu_problemes.csv",
+      "kapslocmeta_description_tous.csv",
+      "kapsloctitle_des_pages_tous.csv",
+      "kapsloccodesréponses.csv",
+      "sécukapsloc.csv",
+      "kapsloc.csv"
+    ],
+    "_raw": "```json\n{\n  \"resume_executif\": \"Le site kapsloc.com présente plusieurs problèmes SEO importants qui nécessitent une attention immédiate pour améliorer son indexabilité et sa visibilité. Des problèmes critiques incluent l'absence de titres et de meta descriptions sur plusieurs pages indexables ainsi que l'utilisation d'URLs canoniques non indexables. De plus, des problèmes de sécurité comme l'absence de certains en-têtes HTTP doivent être corrigés pour protéger les utilisateurs.\",\n  \"score_performance\": 60,\n  \"problemes_prioritaires\": [\n    {\n      \"categorie\": \"Indexation\",\n      \"probleme\": \"Titres de pages manquants\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Ajouter des titres uniques et descriptifs à toutes les pages indexables.\"\n    },\n    {\n      \"categorie\": \"Indexation\",\n      \"probleme\": \"Meta descriptions manquantes\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Créer des meta descriptions uniques et pertinentes pour toutes les pages indexables.\"\n    },\n    {\n      \"categorie\": \"Indexation\",\n      \"probleme\": \"Versions canoniques non indexables\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"S'assurer que toutes les URLs canoniques pointent vers des pages indexables.\"\n    },\n    {\n      \"categorie\": \"Sécurité\",\n      \"probleme\": \"En-tête Secure Referrer-Policy manquant\",\n      \"impact\": \"Faible\",\n      \"solution\": \"Configurer l'en-tête Referrer-Policy avec une valeur appropriée comme 'strict-origin-when-cross-origin'.\"\n    },\n    {\n      \"categorie\": \"Sécurité\",\n      \"probleme\": \"En-tête HSTS manquant\",\n      \"impact\": \"Faible\",\n      \"solution\": \"Ajouter l'en-tête HTTP Strict-Transport-Security (HSTS) à toutes les pages.\"\n    }\n  ],\n  \"recommandations\": [\n    {\n      \"priorite\": \"Haute\",\n      \"action\": \"Corriger les titres et meta descriptions manquants\",\n      \"delai\": \"2 semaines\",\n      \"ressources\": \"Équipe de contenu\"\n    },\n    {\n      \"priorite\": \"Haute\",\n      \"action\": \"Rectifier les URLs canoniques non indexables\",\n      \"delai\": \"1 semaine\",\n      \"ressources\": \"Développeur web\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Mettre à jour les en-têtes de sécurité HTTP\",\n      \"delai\": \"1 mois\",\n      \"ressources\": \"Administrateur système\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Optimiser les images volumineuses\",\n      \"delai\": \"1 mois\",\n      \"ressources\": \"Designer graphique\"\n    }\n  ],\n  \"points_forts\": [\n    \"Le site utilise HTTPS pour toutes les pages.\",\n    \"La plupart des codes HTTP des pages sont 200, indiquant un bon état de fonctionnement.\"\n  ],\n  \"axes_amelioration\": [\n    \"Améliorer la structure des en-têtes H1 et H2 pour une meilleure hiérarchie.\",\n    \"Augmenter la lisibilité du contenu pour atteindre un public plus large.\",\n    \"Optimiser les performances des pages en réduisant la taille des fichiers image et en améliorant le temps de chargement.\"\n  ]\n}\n```"
+  },
+  {
     "audit_id": "63c98833-b91b-48ae-9d1a-5b2c09d156e2",
     "client_name": "symabat",
     "website_url": "https://symabat.fr/home",

@@ -1,12 +1,10 @@
-// app/api/analyze/route.ts
+
 export const runtime = "nodejs";
 
 import { NextRequest, NextResponse } from "next/server";
 import { OpenAI } from "openai";
 import fs from "fs";
 import path from "path";
-
-// Chemin absolu (sauvegarde dans le dossier du projet)
 const filePath = path.join(process.cwd(), "audits.json");
 
 export async function POST(req: NextRequest) {
@@ -51,7 +49,6 @@ Génère un rapport SEO **structuré en JSON** :
 Réponds UNIQUEMENT en JSON.
 `;
 
-  // Appel OpenAI
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
   const gptResponse = await openai.chat.completions.create({
     model: "gpt-4o",
@@ -64,14 +61,23 @@ Réponds UNIQUEMENT en JSON.
   });
 
   const raw = gptResponse.choices[0].message.content;
-  let analysis;
-  try {
-    analysis = JSON.parse(raw!);
-  } catch {
-    analysis = { _raw: raw };
+let analysis: any;
+
+try {
+  
+  let clean = raw!.trim();
+  if (clean.startsWith("```")) {
+    const firstNL = clean.indexOf("\n");     
+    const lastFence = clean.lastIndexOf("```");
+    clean = clean.slice(firstNL, lastFence).trim();
   }
 
-  // --- GESTION DE L'HISTORIQUE FICHIER ---
+  analysis = JSON.parse(clean);
+} catch (e) {
+  console.error("Parsing JSON GPT KO", e);
+  analysis = { _raw: raw };
+}
+
   let audits: any[] = [];
   try {
     if (fs.existsSync(filePath)) {
@@ -88,12 +94,22 @@ Réponds UNIQUEMENT en JSON.
     analysis_date: new Date().toISOString(),
     performance_score: analysis?.score_performance || 0,
     files_analyzed: files.map(f => f.name),
-    // Ajoute ici les autres champs si besoin
     ...analysis,
   };
   audits.unshift(auditRecord);
 
   fs.writeFileSync(filePath, JSON.stringify(audits, null, 2), "utf-8");
+
+console.log("---- FORM DATA ----");
+console.log("client_name:", client_name);
+console.log("website_url:", website_url);
+console.log("files reçus:", files.map(f => `${f.name} (${f.size} o)`));
+
+console.log("---- ANALYSE GPT (brut) ----");
+console.log(raw);                     
+
+console.log("---- ANALYSE PARSÉE ----");
+console.dir(analysis, { depth: null }); 
 
   return NextResponse.json({
     success: true,

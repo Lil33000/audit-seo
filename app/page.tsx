@@ -1,5 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import html2canvas from "html2canvas";
+
+import jsPDF from "jspdf";
+
 
 const backendUrl = ""
 
@@ -38,6 +42,7 @@ export default function Home() {
   const [analysisResult, setAnalysisResult] = useState<any>(null);
   const [auditHistory, setAuditHistory] = useState<any[]>([]);
   const [activeTab, setActiveTab] = useState("analyze");
+  const resultRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => { loadAuditHistory(); }, []);
 
@@ -76,9 +81,11 @@ export default function Home() {
         method: "POST",
         body: formDataToSend,
       });
+      console.log("Response status:", response.status);
 
       if (response.ok) {
         const result = await response.json();
+        console.log("Analysis result:", result);
         setAnalysisResult(result);
         loadAuditHistory();
       } else {
@@ -91,6 +98,42 @@ export default function Home() {
       setIsAnalyzing(false);
     }
   };
+
+const downloadPdf = async () => {
+  if (!resultRef.current) return;
+  const canvas = await html2canvas(resultRef.current, {
+    scrollY: -window.scrollY,     
+    scale: 2                      
+  });
+  const imgData = canvas.toDataURL("image/png");
+  const pdf = new jsPDF({
+    orientation: "p",
+    unit: "pt",
+    format: "a4",
+  });
+
+  const pageWidth  = pdf.internal.pageSize.getWidth();
+  const pageHeight = pdf.internal.pageSize.getHeight();
+  const imgWidth  = canvas.width;
+  const imgHeight = canvas.height;
+  const ratio = Math.min(pageWidth / imgWidth, pageHeight / imgHeight);
+  const width  = imgWidth  * ratio;
+  const height = imgHeight * ratio;
+
+  let posY = 0;
+  let remaining = height;
+
+  pdf.addImage(imgData, "PNG", 0, posY, width, height);
+  remaining -= pageHeight;
+
+  while (remaining > 0) {
+    pdf.addPage();
+    posY = remaining * -1;          
+    pdf.addImage(imgData, "PNG", 0, posY, width, height);
+    remaining -= pageHeight;
+  }
+  pdf.save(`audit_${formData.website_url.replace(/^https?:\/\//, "")}.pdf`);
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -265,7 +308,7 @@ export default function Home() {
               </form>
             </div>
             {analysisResult && (
-              <div className="bg-white rounded-2xl shadow-xl p-8">
+              <div ref={resultRef} className="bg-white rounded-2xl shadow-xl p-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">
                   Résultats de l'analyse
                 </h2>
@@ -282,7 +325,7 @@ export default function Home() {
                         {analysisResult.analysis.score_performance ?? 0}/100
                       </span>
                       <div className="flex-1">
-                        <div className="font-semibold text-lg">Score de Performance</div>
+                        <div className="font-semibold text-black text-lg">Score de Performance</div>
                         <div className="w-full h-3 rounded-full bg-gray-200 mt-2">
                           <div
                             className="h-3 rounded-full bg-indigo-600 transition-all duration-300"
@@ -310,7 +353,7 @@ export default function Home() {
                           analysisResult.analysis.problemes_prioritaires.map(
                             (issue: any, idx: number) => (
                               <li key={idx} className="border border-gray-200 rounded-lg p-4">
-                                <div className="flex items-center mb-1">
+                                <div className="flex items-center text-black mb-1">
                                   <span
                                     className={`mr-2 px-2 py-1 rounded-full text-xs font-medium ${getImpactColor(issue.impact)}`}
                                   >
@@ -318,7 +361,7 @@ export default function Home() {
                                   </span>
                                   <span className="font-semibold">{issue.categorie}</span>
                                 </div>
-                                <div className="font-medium">{issue.probleme}</div>
+                                <div className="font-medium text-gray-700">{issue.probleme}</div>
                                 <div className="text-xs text-gray-700">{issue.solution}</div>
                               </li>
                             )
@@ -334,15 +377,15 @@ export default function Home() {
                           analysisResult.analysis.recommandations.map(
                             (rec: any, idx: number) => (
                               <li key={idx} className="border border-gray-200 rounded-lg p-4">
-                                <div className="flex items-center mb-1">
+                                <div className="flex items-center text-black mb-1">
                                   <span
                                     className={`px-2 py-1 rounded-full text-xs font-medium ${getPriorityColor(rec.priorite)}`}
                                   >
                                     {rec.priorite}
                                   </span>
-                                  <span className="ml-2 text-sm text-gray-500">{rec.delai}</span>
+                                  <span className="ml-2 text-sm text-gray-700">{rec.delai}</span>
                                 </div>
-                                <div className="font-medium">{rec.action}</div>
+                                <div className="font-medium text-black">{rec.action}</div>
                                 <div className="text-xs text-gray-700">{rec.ressources}</div>
                               </li>
                             )
@@ -351,7 +394,7 @@ export default function Home() {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <h4 className="font-semibold mb-2">Points forts</h4>
+                        <h4 className="font-semibold text-black mb-2">Points forts</h4>
                         <ul className="flex flex-wrap gap-2">
                           {Array.isArray(analysisResult.analysis.points_forts) &&
                             analysisResult.analysis.points_forts.map(
@@ -367,7 +410,7 @@ export default function Home() {
                         </ul>
                       </div>
                       <div>
-                        <h4 className="font-semibold mb-2">Axes d'amélioration</h4>
+                        <h4 className="font-semibold text-black mb-2">Axes d'amélioration</h4>
                         <ul className="flex flex-wrap gap-2">
                           {Array.isArray(analysisResult.analysis.axes_amelioration) &&
                             analysisResult.analysis.axes_amelioration.map(
@@ -393,6 +436,15 @@ export default function Home() {
                   </div>
                 )}
                 {analysisResult?.analysis && (
+                  <div className="mt-6 flex flex-wrap gap-4">
+                    <button
+      className="px-4 py-2 bg-indigo-600 text-white rounded shadow hover:bg-indigo-700"
+      onClick={downloadPdf}
+    >
+      Télécharger le rapport PDF
+    </button>
+
+                    
                   <button
                     className="mt-6 px-4 py-2 bg-indigo-600 text-white rounded shadow hover:bg-indigo-700"
                     onClick={() => {
@@ -412,6 +464,7 @@ export default function Home() {
                   >
                     Télécharger le rapport JSON
                   </button>
+                  </div>
                 )}
               </div>
             )}
