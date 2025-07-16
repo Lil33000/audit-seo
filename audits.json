@@ -1,0 +1,153 @@
+[
+  {
+    "audit_id": "63c98833-b91b-48ae-9d1a-5b2c09d156e2",
+    "client_name": "symabat",
+    "website_url": "https://symabat.fr/home",
+    "analysis_date": "2025-07-15T12:41:28.067Z",
+    "performance_score": 0,
+    "files_analyzed": [
+      "meta_description_all.csv",
+      "security_all.csv",
+      "external_all.csv",
+      "issues_overview_report.csv",
+      "internal_all.csv"
+    ],
+    "_raw": "```json\n{\n  \"resume_executif\": \"Le site symabat.fr présente plusieurs problèmes SEO majeurs, notamment l'absence de méta descriptions et de titres de page, ce qui peut affecter sa visibilité et son classement dans les résultats de recherche. De plus, il existe des problèmes de sécurité liés aux en-têtes HTTP manquants. Ces facteurs combinés nécessitent une attention immédiate pour améliorer la performance SEO globale du site.\",\n  \"score_performance\": 45,\n  \"problemes_prioritaires\": [\n    {\n      \"categorie\": \"Méta Données\",\n      \"probleme\": \"Absence de méta descriptions sur toutes les pages indexables.\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Rédiger et implémenter des méta descriptions uniques et descriptives pour chaque page.\"\n    },\n    {\n      \"categorie\": \"Titres de Page\",\n      \"probleme\": \"Absence de titres de page sur toutes les pages indexables.\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Créer des titres de page concis et descriptifs pour chaque page.\"\n    },\n    {\n      \"categorie\": \"Sécurité\",\n      \"probleme\": \"En-têtes HTTP de sécurité manquants (HSTS, X-Content-Type-Options, etc.).\",\n      \"impact\": \"Moyen\",\n      \"solution\": \"Mettre en place les en-têtes de sécurité HTTP appropriés pour protéger le site et ses utilisateurs.\"\n    }\n  ],\n  \"recommandations\": [\n    {\n      \"priorite\": \"Haute\",\n      \"action\": \"Rédiger et intégrer des méta descriptions et des titres de page pour toutes les pages indexables.\",\n      \"delai\": \"1-2 semaines\",\n      \"ressources\": \"Équipe de contenu SEO\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Mettre en place les en-têtes de sécurité HTTP manquants.\",\n      \"delai\": \"2-3 semaines\",\n      \"ressources\": \"Développeur web\"\n    },\n    {\n      \"priorite\": \"Basse\",\n      \"action\": \"Optimiser les images lourdes pour réduire le temps de chargement.\",\n      \"delai\": \"3-4 semaines\",\n      \"ressources\": \"Designer ou développeur spécialisé dans l'optimisation d'images\"\n    }\n  ],\n  \"points_forts\": [\n    \"Toutes les pages principales sont indexables.\",\n    \"Le site utilise HTTPS, garantissant un niveau de sécurité de base.\"\n  ],\n  \"axes_amelioration\": [\n    \"Améliorer les performances de sécurité en ajoutant des en-têtes HTTP appropriés.\",\n    \"Optimiser les images pour améliorer le temps de chargement des pages.\",\n    \"Corriger les liens externes brisés pour améliorer l'expérience utilisateur.\"\n  ]\n}\n```"
+  },
+  {
+    "audit_id": "e4d0c140-9dc4-4211-a39e-d88a41b98bbc",
+    "client_name": "symabat",
+    "website_url": "https://symabat.fr/home",
+    "analysis_date": "2025-07-15T12:37:45.735Z",
+    "performance_score": 0,
+    "files_analyzed": [
+      "meta_description_all.csv",
+      "security_all.csv",
+      "external_all.csv",
+      "issues_overview_report.csv",
+      "internal_all.csv"
+    ],
+    "_raw": "```json\n{\n  \"resume_executif\": \"L'analyse SEO du site symabat.fr met en lumière plusieurs problématiques essentielles liées à l'optimisation pour les moteurs de recherche. Les principaux enjeux incluent l'absence de méta descriptions et de titres sur toutes les pages, des erreurs de sécurité, ainsi que des problèmes d'expérience utilisateur liés à la taille des images et à l'absence d'attributs alt. Il est crucial d'adresser ces problèmes pour améliorer le référencement et l'expérience utilisateur du site.\",\n  \"score_performance\": 45,\n  \"problemes_prioritaires\": [\n    {\n      \"categorie\": \"Contenu\",\n      \"probleme\": \"Absence de méta descriptions et de titres sur toutes les pages\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Créer des méta descriptions et des titres uniques et descriptifs pour chaque page.\"\n    },\n    {\n      \"categorie\": \"Sécurité\",\n      \"probleme\": \"Manque d'en-têtes de sécurité (HSTS, X-Content-Type-Options, etc.)\",\n      \"impact\": \"Faible\",\n      \"solution\": \"Mettre en place les en-têtes de sécurité recommandés pour protéger les utilisateurs.\"\n    },\n    {\n      \"categorie\": \"Liens\",\n      \"probleme\": \"Liens externes cassés (404)\",\n      \"impact\": \"Faible\",\n      \"solution\": \"Corriger ou supprimer les liens externes cassés pour améliorer l'expérience utilisateur.\"\n    }\n  ],\n  \"recommandations\": [\n    {\n      \"priorite\": \"Haute\",\n      \"action\": \"Implémenter des titres et méta descriptions sur toutes les pages\",\n      \"delai\": \"1 mois\",\n      \"ressources\": \"Équipe de contenu SEO\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Optimiser la taille des images et ajouter des attributs alt\",\n      \"delai\": \"2 mois\",\n      \"ressources\": \"Développeur Front-end\"\n    },\n    {\n      \"priorite\": \"Basse\",\n      \"action\": \"Mettre à jour les en-têtes de sécurité\",\n      \"delai\": \"3 mois\",\n      \"ressources\": \"Développeur Backend\"\n    }\n  ],\n  \"points_forts\": [\n    \"Toutes les pages importantes sont indexables.\",\n    \"Architecture de site simple et claire.\"\n  ],\n  \"axes_amelioration\": [\n    \"Optimisation des méta descriptions et des titres.\",\n    \"Mise en œuvre des en-têtes de sécurité.\",\n    \"Optimisation des images pour améliorer la vitesse de chargement.\"\n  ]\n}\n```"
+  },
+  {
+    "audit_id": "1db6c262-9ff3-400c-9403-665a4363da4c",
+    "client_name": "symabat",
+    "website_url": "https://symabat.fr/home",
+    "analysis_date": "2025-07-15T12:37:25.307Z",
+    "performance_score": 0,
+    "files_analyzed": [
+      "meta_description_all.csv",
+      "security_all.csv",
+      "external_all.csv",
+      "issues_overview_report.csv",
+      "internal_all.csv"
+    ],
+    "_raw": "```json\n{\n  \"resume_executif\": \"Le site symabat.fr présente plusieurs problèmes SEO critiques, notamment l'absence de meta descriptions et de titres de page, ainsi que des problèmes de sécurité liés aux en-têtes HTTP. Des actions correctives sont nécessaires pour améliorer la visibilité et la sécurité du site.\",\n  \"score_performance\": 45,\n  \"problemes_prioritaires\": [\n    {\n      \"categorie\": \"Meta Information\",\n      \"probleme\": \"Absence de meta descriptions et de titres de page sur toutes les pages indexables.\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Ajouter des meta descriptions uniques et des titres descriptifs sur chaque page indexable.\"\n    },\n    {\n      \"categorie\": \"Sécurité\",\n      \"probleme\": \"Absence d'en-têtes HTTP sécurisés (HSTS, X-Content-Type-Options, X-Frame-Options).\",\n      \"impact\": \"Moyen\",\n      \"solution\": \"Configurer les en-têtes HTTP pour inclure HSTS, X-Content-Type-Options et X-Frame-Options pour améliorer la sécurité.\"\n    },\n    {\n      \"categorie\": \"Contenu\",\n      \"probleme\": \"Pages avec un contenu faible en termes de nombre de mots.\",\n      \"impact\": \"Moyen\",\n      \"solution\": \"Enrichir les pages avec du contenu supplémentaire pour fournir plus d'informations aux utilisateurs et aux moteurs de recherche.\"\n    }\n  ],\n  \"recommandations\": [\n    {\n      \"priorite\": \"Haute\",\n      \"action\": \"Implémenter des meta descriptions et des titres pour chaque page indexable.\",\n      \"delai\": \"1 mois\",\n      \"ressources\": \"Équipe de rédaction SEO\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Configurer les en-têtes de sécurité HTTP sur le serveur.\",\n      \"delai\": \"2 semaines\",\n      \"ressources\": \"Administrateur système\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Optimiser les images pour réduire la taille des fichiers.\",\n      \"delai\": \"1 mois\",\n      \"ressources\": \"Graphiste ou développeur web\"\n    }\n  ],\n  \"points_forts\": [\n    \"Toutes les pages importantes sont indexables.\",\n    \"Le site utilise des redirections permanentes (308) appropriées.\"\n  ],\n  \"axes_amelioration\": [\n    \"Ajouter des attributs alt aux images manquantes pour améliorer l'accessibilité.\",\n    \"Réduire la taille des images volumineuses pour améliorer la vitesse de chargement des pages.\",\n    \"Vérifier et corriger les liens externes cassés pour éviter les erreurs 404.\"\n  ]\n}\n```"
+  },
+  {
+    "audit_id": "87b133f2-9754-459e-9215-d7500fc97435",
+    "client_name": "symabat",
+    "website_url": "https://symabat.fr/home",
+    "analysis_date": "2025-07-15T12:29:10.838Z",
+    "performance_score": 0,
+    "files_analyzed": [
+      "meta_description_all.csv",
+      "security_all.csv",
+      "external_all.csv",
+      "issues_overview_report.csv",
+      "internal_all.csv"
+    ],
+    "_raw": "```json\n{\n  \"resume_executif\": \"Le site symabat.fr présente plusieurs opportunités d'amélioration SEO, notamment l'absence de balises essentielles comme les titres de page et les meta descriptions. La sécurité pourrait être renforcée avec l'ajout de certains en-têtes HTTP. Les images nécessitent également une optimisation pour améliorer la vitesse de chargement.\",\n  \"score_performance\": 55,\n  \"problemes_prioritaires\": [\n    {\n      \"categorie\": \"Meta Tags\",\n      \"probleme\": \"Absence de meta descriptions et de titres de page\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Ajouter des meta descriptions et des titres de page uniques et descriptifs sur chaque page indexable.\"\n    },\n    {\n      \"categorie\": \"Sécurité\",\n      \"probleme\": \"En-têtes de sécurité manquants\",\n      \"impact\": \"Moyen\",\n      \"solution\": \"Implémenter les en-têtes 'Referrer-Policy', 'X-Content-Type-Options', 'HSTS', et 'X-Frame-Options'.\"\n    },\n    {\n      \"categorie\": \"Images\",\n      \"probleme\": \"Images manquant d'optimisation\",\n      \"impact\": \"Moyen\",\n      \"solution\": \"Compresser les images pour réduire leur taille et définir les attributs de taille pour éviter les décalages de mise en page.\"\n    }\n  ],\n  \"recommandations\": [\n    {\n      \"priorite\": \"Haute\",\n      \"action\": \"Optimiser les balises meta et les titres de page\",\n      \"delai\": \"1-2 semaines\",\n      \"ressources\": \"Équipe de contenu\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Mettre à jour les en-têtes de sécurité\",\n      \"delai\": \"1 mois\",\n      \"ressources\": \"Équipe de développement\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Optimiser les images pour le web\",\n      \"delai\": \"2-3 semaines\",\n      \"ressources\": \"Équipe de design\"\n    }\n  ],\n  \"points_forts\": [\n    \"Pages indexables avec un bon score de lisibilité.\",\n    \"Bonne structure de liens internes.\"\n  ],\n  \"axes_amelioration\": [\n    \"Améliorer la sécurité du site avec des en-têtes HTTP appropriés.\",\n    \"Optimiser les performances en réduisant la taille des images.\",\n    \"Ajouter des titres et descriptions meta pour toutes les pages.\"\n  ]\n}\n```"
+  },
+  {
+    "audit_id": "59225fc7-03ec-47b5-84f3-c3196609142c",
+    "client_name": "symabat",
+    "website_url": "https://symabat.fr/home",
+    "analysis_date": "2025-07-15T12:28:36.411Z",
+    "performance_score": 0,
+    "files_analyzed": [
+      "meta_description_all.csv",
+      "security_all.csv",
+      "external_all.csv",
+      "issues_overview_report.csv",
+      "internal_all.csv"
+    ],
+    "_raw": "```json\n{\n  \"resume_executif\": \"L'analyse SEO du site symabat.fr révèle des problèmes critiques tels que l'absence de titres de page et de méta descriptions sur toutes les pages indexables. Le site présente également des faiblesses en matière de sécurité avec des en-têtes HTTP manquants et des liens externes brisés. Des améliorations en termes de contenu et de performance des images sont nécessaires pour optimiser l'expérience utilisateur et le référencement.\",\n  \"score_performance\": 45,\n  \"problemes_prioritaires\": [\n    {\n      \"categorie\": \"Contenu\",\n      \"probleme\": \"Pages avec des titres de page manquants\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Ajouter des titres de page uniques et descriptifs à chaque URL indexable.\"\n    },\n    {\n      \"categorie\": \"Contenu\",\n      \"probleme\": \"Méta descriptions manquantes\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Rédiger des méta descriptions uniques et engageantes pour toutes les pages indexables.\"\n    },\n    {\n      \"categorie\": \"Sécurité\",\n      \"probleme\": \"En-têtes HTTP manquants\",\n      \"impact\": \"Faible\",\n      \"solution\": \"Ajouter des en-têtes de sécurité tels que Referrer-Policy, X-Content-Type-Options, et HSTS.\"\n    },\n    {\n      \"categorie\": \"Liens\",\n      \"probleme\": \"Liens externes brisés\",\n      \"impact\": \"Moyen\",\n      \"solution\": \"Corriger ou supprimer les liens externes qui renvoient des erreurs 404.\"\n    }\n  ],\n  \"recommandations\": [\n    {\n      \"priorite\": \"Haute\",\n      \"action\": \"Ajouter des titres de page et méta descriptions\",\n      \"delai\": \"1 mois\",\n      \"ressources\": \"Équipe de contenu pour la rédaction\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Optimiser les images pour améliorer la vitesse de chargement\",\n      \"delai\": \"2 mois\",\n      \"ressources\": \"Développeur front-end pour la compression des images\"\n    },\n    {\n      \"priorite\": \"Basse\",\n      \"action\": \"Mettre en place les en-têtes de sécurité HTTP\",\n      \"delai\": \"3 mois\",\n      \"ressources\": \"Développeur web pour la configuration des serveurs\"\n    }\n  ],\n  \"points_forts\": [\n    \"Bonne structure des titres H1 et H2\",\n    \"Toutes les pages sont indexables avec des codes de statut 200\"\n  ],\n  \"axes_amelioration\": [\n    \"Augmenter la quantité de contenu sur les pages à faible nombre de mots\",\n    \"Améliorer l'optimisation des images pour réduire leur taille\",\n    \"Mettre à jour les liens externes pour éviter les erreurs 404\"\n  ]\n}\n```"
+  },
+  {
+    "audit_id": "1749c9c4-e419-4f51-b6b9-68675ae41cbb",
+    "client_name": "symabat",
+    "website_url": "https://symabat.fr/home",
+    "analysis_date": "2025-07-15T12:17:18.566Z",
+    "performance_score": 0,
+    "files_analyzed": [
+      "meta_description_all.csv",
+      "security_all.csv",
+      "external_all.csv",
+      "issues_overview_report.csv",
+      "internal_all.csv"
+    ],
+    "_raw": "```json\n{\n  \"resume_executif\": \"Le site symabat.fr présente plusieurs problèmes SEO critiques, notamment l'absence de balises meta descriptions et de titres de page, ce qui peut affecter la visibilité du site dans les résultats de recherche. Il y a aussi des problèmes de sécurité et des images lourdes qui peuvent nuire à l'expérience utilisateur.\",\n  \"score_performance\": 55,\n  \"problemes_prioritaires\": [\n    {\n      \"categorie\": \"Balises Meta\",\n      \"probleme\": \"Meta descriptions manquantes\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Ajouter des descriptions meta uniques et pertinentes pour chaque page indexable.\"\n    },\n    {\n      \"categorie\": \"Balises Meta\",\n      \"probleme\": \"Titres de page manquants\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Créer des titres de page uniques et descriptifs pour chaque URL indexable.\"\n    },\n    {\n      \"categorie\": \"Sécurité\",\n      \"probleme\": \"Manque de l'en-tête de sécurité strict-transport-security (HSTS)\",\n      \"impact\": \"Faible\",\n      \"solution\": \"Configurer l'en-tête HSTS sur le serveur pour forcer l'accès HTTPS.\"\n    }\n  ],\n  \"recommandations\": [\n    {\n      \"priorite\": \"Haute\",\n      \"action\": \"Mettre à jour toutes les pages avec des titres et des descriptions meta appropriés.\",\n      \"delai\": \"2 semaines\",\n      \"ressources\": \"Équipe de contenu SEO\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Optimiser les images pour réduire leur taille et améliorer les temps de chargement.\",\n      \"delai\": \"1 mois\",\n      \"ressources\": \"Développeur web\"\n    },\n    {\n      \"priorite\": \"Basse\",\n      \"action\": \"Implémenter les en-têtes de sécurité manquants tels que HSTS et X-Content-Type-Options.\",\n      \"delai\": \"1 mois\",\n      \"ressources\": \"Administrateur système\"\n    }\n  ],\n  \"points_forts\": [\n    \"Toutes les pages sont actuellement indexables.\",\n    \"Structure de liens internes présente.\"\n  ],\n  \"axes_amelioration\": [\n    \"Ajouter des balises meta descriptions et titres pour toutes les pages.\",\n    \"Optimiser la sécurité du site avec les en-têtes HTTP appropriés.\",\n    \"Réduire la taille des images pour améliorer la vitesse du site.\"\n  ]\n}\n```"
+  },
+  {
+    "audit_id": "924ce788-8cc7-42c6-ae03-75161993ee0b",
+    "client_name": "symabat",
+    "website_url": "https://symabat.fr/home",
+    "analysis_date": "2025-07-15T12:14:56.446Z",
+    "performance_score": 0,
+    "files_analyzed": [
+      "meta_description_all.csv",
+      "security_all.csv",
+      "external_all.csv",
+      "issues_overview_report.csv",
+      "internal_all.csv"
+    ],
+    "_raw": "```json\n{\n  \"resume_executif\": \"Le site symabat.fr présente plusieurs problèmes SEO critiques, notamment l'absence de meta descriptions et de titres de page, ce qui peut affecter la visibilité dans les résultats de recherche. De plus, des problèmes de sécurité tels que l'absence d'en-têtes de sécurité importants ont été identifiés. Les images de grande taille et les liens externes cassés sont également des facteurs à prendre en compte pour améliorer la performance du site.\",\n  \"score_performance\": 55,\n  \"problemes_prioritaires\": [\n    {\n      \"categorie\": \"Contenu\",\n      \"probleme\": \"Meta descriptions manquantes\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Rédiger des meta descriptions uniques et descriptives pour chaque page.\"\n    },\n    {\n      \"categorie\": \"Contenu\",\n      \"probleme\": \"Titres de page manquants\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Créer des titres de page concis et pertinents pour chaque URL indexable.\"\n    },\n    {\n      \"categorie\": \"Sécurité\",\n      \"probleme\": \"En-têtes de sécurité manquants\",\n      \"impact\": \"Moyen\",\n      \"solution\": \"Ajouter les en-têtes de sécurité manquants comme X-Content-Type-Options, HSTS, et X-Frame-Options.\"\n    },\n    {\n      \"categorie\": \"Images\",\n      \"probleme\": \"Images de grande taille\",\n      \"impact\": \"Moyen\",\n      \"solution\": \"Optimiser les images pour réduire leur taille sans compromettre la qualité.\"\n    },\n    {\n      \"categorie\": \"Liens\",\n      \"probleme\": \"Liens externes cassés\",\n      \"impact\": \"Faible\",\n      \"solution\": \"Corriger ou supprimer les liens externes menant à des erreurs 404.\"\n    }\n  ],\n  \"recommandations\": [\n    {\n      \"priorite\": \"Haute\",\n      \"action\": \"Mettre à jour les meta descriptions et les titres de pages\",\n      \"delai\": \"1 mois\",\n      \"ressources\": \"Rédacteur SEO\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Implémenter les en-têtes de sécurité manquants\",\n      \"delai\": \"2 semaines\",\n      \"ressources\": \"Développeur Web\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Optimiser les images de grande taille\",\n      \"delai\": \"1 mois\",\n      \"ressources\": \"Graphiste ou développeur\"\n    },\n    {\n      \"priorite\": \"Basse\",\n      \"action\": \"Vérifier et corriger les liens externes cassés\",\n      \"delai\": \"2 mois\",\n      \"ressources\": \"Assistant SEO\"\n    }\n  ],\n  \"points_forts\": [\n    \"Toutes les pages principales sont indexables.\",\n    \"Utilisation de HTTPS sur l'ensemble du site.\"\n  ],\n  \"axes_amelioration\": [\n    \"Améliorer la sécurité en ajoutant des en-têtes HTTP\",\n    \"Optimiser le contenu pour améliorer le SEO on-page\",\n    \"Réduire la taille des images pour améliorer le temps de chargement\"\n  ]\n}\n```"
+  },
+  {
+    "audit_id": "907b195f-53ee-4c58-849b-b65f133b42c7",
+    "client_name": "symabat",
+    "website_url": "https://symabat.fr/home",
+    "competitor_urls": [],
+    "analysis_date": "2025-07-15T12:10:49.492Z",
+    "analysis_summary": "",
+    "priority_issues": [],
+    "recommendations": [],
+    "performance_score": 0,
+    "files_analyzed": [
+      "meta_description_all.csv",
+      "security_all.csv",
+      "external_all.csv",
+      "issues_overview_report.csv",
+      "internal_all.csv"
+    ],
+    "points_forts": [],
+    "axes_amelioration": [],
+    "raw_analysis": {
+      "_raw": "```json\n{\n  \"resume_executif\": \"Le site symabat.fr présente plusieurs opportunités d'amélioration au niveau SEO, notamment en ce qui concerne les balises meta et la sécurité. Bien que le site soit indexable, l'absence de descriptions meta et de titres de page peut nuire à son classement. De plus, des lacunes en matière de sécurité, telles que l'absence de certains en-têtes, doivent être corrigées pour améliorer la performance globale.\",\n  \"score_performance\": 65,\n  \"problemes_prioritaires\": [\n    {\n      \"categorie\": \"Meta Description\",\n      \"probleme\": \"Absence de meta descriptions sur toutes les pages\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Écrire des descriptions meta uniques et descriptives pour chaque page.\"\n    },\n    {\n      \"categorie\": \"Page Titles\",\n      \"probleme\": \"Absence de titres de page\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Ajouter des titres de page concis et pertinents à chaque URL indexable.\"\n    },\n    {\n      \"categorie\": \"Sécurité\",\n      \"probleme\": \"Headers de sécurité manquants\",\n      \"impact\": \"Moyen\",\n      \"solution\": \"Mettre en place les en-têtes HSTS, X-Content-Type-Options et Referrer-Policy.\"\n    },\n    {\n      \"categorie\": \"Images\",\n      \"probleme\": \"Images de grande taille sans optimisation\",\n      \"impact\": \"Moyen\",\n      \"solution\": \"Optimiser les images pour réduire la taille des fichiers et améliorer la vitesse de chargement.\"\n    },\n    {\n      \"categorie\": \"Liens externes\",\n      \"probleme\": \"Liens externes avec erreurs 404\",\n      \"impact\": \"Faible\",\n      \"solution\": \"Corriger ou supprimer les liens vers des URLs externes non valides.\"\n    }\n  ],\n  \"recommandations\": [\n    {\n      \"priorite\": \"Haute\",\n      \"action\": \"Ajouter des meta descriptions et des titres de page\",\n      \"delai\": \"1 mois\",\n      \"ressources\": \"SEO Specialist, Content Writer\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Améliorer la sécurité des headers HTTP\",\n      \"delai\": \"2 mois\",\n      \"ressources\": \"Developer\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Optimiser les images pour le web\",\n      \"delai\": \"1 mois\",\n      \"ressources\": \"Graphic Designer\"\n    },\n    {\n      \"priorite\": \"Basse\",\n      \"action\": \"Vérifier et corriger les liens externes\",\n      \"delai\": \"3 mois\",\n      \"ressources\": \"SEO Specialist\"\n    }\n  ],\n  \"points_forts\": [\n    \"Toutes les pages sont indexables.\",\n    \"Le site utilise des URLs propres et logiques.\"\n  ],\n  \"axes_amelioration\": [\n    \"Mettre en œuvre des stratégies de contenu pour augmenter le nombre de mots sur les pages clés.\",\n    \"Améliorer l'accessibilité en ajoutant des attributs alt à toutes les images.\",\n    \"Réduire le nombre de redirections internes pour améliorer l'efficacité du crawl.\"\n  ]\n}\n```"
+    }
+  },
+  {
+    "audit_id": "f3992850-d294-44fa-8687-ea2c743c548b",
+    "client_name": "symabat",
+    "website_url": "https://symabat.fr/home",
+    "competitor_urls": [],
+    "analysis_date": "2025-07-15T12:06:43.892Z",
+    "analysis_summary": "",
+    "priority_issues": [],
+    "recommendations": [],
+    "performance_score": 0,
+    "files_analyzed": [
+      "meta_description_all.csv",
+      "security_all.csv",
+      "external_all.csv",
+      "issues_overview_report.csv",
+      "internal_all.csv"
+    ],
+    "points_forts": [],
+    "axes_amelioration": [],
+    "raw_analysis": {
+      "_raw": "```json\n{\n  \"resume_executif\": \"L'analyse SEO du site symabat.fr révèle des lacunes majeures, notamment l'absence de méta-descriptions, de titres de page, et de canoniques. Des problèmes de sécurité, tels que l'absence de certains en-têtes de sécurité, sont également présents. Le contenu est insuffisant sur plusieurs pages, et certaines images nécessitent une optimisation. Des liens externes cassés ont été détectés, ce qui pourrait nuire à l'expérience utilisateur.\",\n  \"score_performance\": 45,\n  \"problemes_prioritaires\": [\n    {\n      \"categorie\": \"Meta\",\n      \"probleme\": \"Absence de méta-descriptions\",\n      \"impact\": \"Élevé\",\n      \"solution\": \"Rédiger des méta-descriptions uniques et descriptives pour chaque page.\"\n    },\n    {\n      \"categorie\": \"Contenu\",\n      \"probleme\": \"Pages à faible contenu\",\n      \"impact\": \"Moyen\",\n      \"solution\": \"Ajouter du contenu descriptif pour améliorer la compréhension et l'engagement.\"\n    },\n    {\n      \"categorie\": \"Liens\",\n      \"probleme\": \"Liens externes cassés\",\n      \"impact\": \"Moyen\",\n      \"solution\": \"Corriger ou supprimer les liens externes cassés pour améliorer l'expérience utilisateur.\"\n    }\n  ],\n  \"recommandations\": [\n    {\n      \"priorite\": \"Haute\",\n      \"action\": \"Ajouter des titres de page et des méta-descriptions\",\n      \"delai\": \"1-2 semaines\",\n      \"ressources\": \"Équipe de contenu SEO\"\n    },\n    {\n      \"priorite\": \"Moyenne\",\n      \"action\": \"Optimiser les images volumineuses\",\n      \"delai\": \"2-3 semaines\",\n      \"ressources\": \"Équipe de développement\"\n    },\n    {\n      \"priorite\": \"Basse\",\n      \"action\": \"Implémenter les en-têtes de sécurité manquants\",\n      \"delai\": \"3-4 semaines\",\n      \"ressources\": \"Équipe technique\"\n    }\n  ],\n  \"points_forts\": [\n    \"Toutes les pages sont indexables.\",\n    \"Bonne utilisation des balises H2 pour structurer le contenu.\"\n  ],\n  \"axes_amelioration\": [\n    \"Développement de contenu pour augmenter le nombre de mots sur les pages clés.\",\n    \"Amélioration de la sécurité en ajoutant des en-têtes HTTP appropriés.\",\n    \"Réduction de la taille des images pour améliorer la vitesse de chargement des pages.\"\n  ]\n}\n```"
+    }
+  }
+]
