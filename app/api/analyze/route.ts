@@ -7,112 +7,102 @@ import fs from "fs";
 import path from "path";
 const filePath = path.join(process.cwd(), "audits.json");
 
-export async function POST(req: NextRequest) {
-  const form = await req.formData();
-  const client_name = form.get("client_name") as string;
-  const website_url = form.get("website_url") as string;
-  const files = form.getAll("files") as File[];
-
-  let prompt = `Client: ${client_name}\nSite: ${website_url}\n\nVoici les exports SEO à analyser :\n\n`;
-  for (const file of files) {
-    const arrayBuffer = await file.arrayBuffer();
-    let content = Buffer.from(arrayBuffer).toString("utf-8");
-    if (content.length > 12000) content = content.slice(0, 12000) + "\n...(tronqué)...";
-    prompt += `--- ${file.name} ---\n${content}\n\n`;
+function safeReadAudits(file: string) {
+  try {
+    if (!fs.existsSync(file)) return [];
+    const raw = fs.readFileSync(file, "utf-8").trim();
+    if (!raw) return [];
+    return JSON.parse(raw);
+  } catch {
+    fs.renameSync(file, file + ".broken");
+    return [];
   }
-
-  prompt += `
-Analyse tous ces fichiers comme un expert SEO.
-Génère un rapport SEO **structuré en JSON** :
-{
-  "resume_executif": "...",
-  "score_performance": 0-100,
-  "problemes_prioritaires": [
-    {
-      "categorie": "...",
-      "probleme": "...",
-      "impact": "Faible/Moyen/Élevé",
-      "solution": "..."
-    }
-  ],
-  "recommandations": [
-    {
-      "priorite": "Haute/Moyenne/Basse",
-      "action": "...",
-      "delai": "...",
-      "ressources": "..."
-    }
-  ],
-  "points_forts": ["..."],
-  "axes_amelioration": ["..."]
 }
-Réponds UNIQUEMENT en JSON.
+function monthFr(date = new Date()) {
+  return date.toLocaleDateString("fr-FR", { month: "long", year: "numeric" });
+}
+
+export async function POST(req: NextRequest) {
+  const form         = await req.formData();
+  const client_name  = form.get("client_name")  as string;
+  const website_url  = form.get("website_url")  as string;
+  const files        = form.getAll("files")     as File[];
+
+  const moisActuel = monthFr();
+  let prompt = `# Contexte
+Client : **${client_name}**
+Site audité : **${website_url}**
+
+Tu es un expert SEO senior.  
+Analyse les exports CSV ci‑dessous et rédige un **rapport mensuel en Markdown** calqué sur le template suivant.
+
+---
+
+## Page de garde
+*Rapport SEO Mensuel – Client : ${client_name}*  
+Mois : ${moisActuel}  
+Produit par : **Kapsloc**
+
+## Table des matières
+1. Résumé exécutif  
+2. KPI globaux (score santé, volume pages, performances)  
+3. Problèmes SEO critiques  
+4. Balises Title & Meta (qualité + duplication)  
+5. Codes réponse HTTP & redirections  
+6. Sécurité (headers, mixed content)  
+7. Performances web (PageSpeed, CWV)  
+8. Priorisation 30 / 60 / 90 jours  
+9. Annexes (données brutes)
+
+---
+
+### Détail attendu par section
+
+*Section 3* : tableau « Impact | URL / Fichier | Recommandation ».  
+*Section 4* : stats duplication titres + meta, top 10 doublons.  
+*Section 5* : % 2xx / 3xx / 4xx / 5xx, liste 404 principales.  
+*Section 6* : HTTPS OK ?, HSTS, X‑Frame‑Options, liste de mixed content.  
+*Section 7* : tableau LCP / FID / CLS (mobile & desktop).  
+*Section 8* : bullet list des actions avec priorité 🔴🟠🟢.
+
+Réponds **uniquement** avec ce Markdown, aucun code block JSON.
+
+---
+
+## Exports CSV à analyser
 `;
 
+  for (const f of files) {
+    let txt = Buffer.from(await f.arrayBuffer()).toString("utf-8");
+    if (txt.length > 32_000) txt = txt.slice(0, 32_000) + "\n…(tronqué)…";
+    prompt += `\n### ${f.name}\n\`\`\`csv\n${txt}\n\`\`\``;
+  }
+
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-  const gptResponse = await openai.chat.completions.create({
+  const { choices } = await openai.chat.completions.create({
     model: "gpt-4o",
+    temperature: 0.4,
+    max_tokens: 4000,
     messages: [
-      { role: "system", content: "Tu es un expert SEO senior. Réponds toujours en JSON strict." },
-      { role: "user", content: prompt }
+      { role: "system", content: "Tu es un expert SEO senior. Réponds en Markdown pur – pas de balises ```json```." },
+      { role: "user",   content: prompt }
     ],
-    temperature: 0.7,
-    max_tokens: 2000,
   });
+  const markdown = choices[0].message.content!.trim();
 
-  const raw = gptResponse.choices[0].message.content;
-let analysis: any;
 
-try {
-  
-  let clean = raw!.trim();
-  if (clean.startsWith("```")) {
-    const firstNL = clean.indexOf("\n");     
-    const lastFence = clean.lastIndexOf("```");
-    clean = clean.slice(firstNL, lastFence).trim();
-  }
-
-  analysis = JSON.parse(clean);
-} catch (e) {
-  console.error("Parsing JSON GPT KO", e);
-  analysis = { _raw: raw };
-}
-
-  let audits: any[] = [];
-  try {
-    if (fs.existsSync(filePath)) {
-      audits = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-    }
-  } catch {
-    audits = [];
-  }
-
-  const auditRecord = {
+  const record = {
     audit_id: crypto.randomUUID(),
     client_name,
     website_url,
     analysis_date: new Date().toISOString(),
-    performance_score: analysis?.score_performance || 0,
-    files_analyzed: files.map(f => f.name),
-    ...analysis,
+    markdown,
   };
-  audits.unshift(auditRecord);
+  const audits = safeReadAudits(filePath);
+  audits.unshift(record);
+  const tmp = filePath + ".tmp";
+  fs.writeFileSync(tmp, JSON.stringify(audits, null, 2), "utf-8");
+  fs.renameSync(tmp, filePath);
 
-  fs.writeFileSync(filePath, JSON.stringify(audits, null, 2), "utf-8");
-
-console.log("---- FORM DATA ----");
-console.log("client_name:", client_name);
-console.log("website_url:", website_url);
-console.log("files reçus:", files.map(f => `${f.name} (${f.size} o)`));
-
-console.log("---- ANALYSE GPT (brut) ----");
-console.log(raw);                     
-
-console.log("---- ANALYSE PARSÉE ----");
-console.dir(analysis, { depth: null }); 
-
-  return NextResponse.json({
-    success: true,
-    analysis,
-  });
+  return NextResponse.json({ success: true, payload: markdown });
 }
