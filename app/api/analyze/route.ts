@@ -1,4 +1,3 @@
-
 export const runtime = "nodejs";
 
 import { NextRequest, NextResponse } from "next/server";
@@ -17,59 +16,56 @@ function safeReadAudits(file: string) {
     fs.renameSync(file, file + ".broken");
     return [];
   }
+
+
+
 }
 function monthFr(date = new Date()) {
   return date.toLocaleDateString("fr-FR", { month: "long", year: "numeric" });
 }
+  function lastReportMarkdown(audits: any[], url: string) {
+  const previous = audits.find(a => a.website_url === url);
+  return previous?.markdown ?? "";
+}
 
 export async function POST(req: NextRequest) {
-  const form         = await req.formData();
-  const client_name  = form.get("client_name")  as string;
-  const website_url  = form.get("website_url")  as string;
-  const files        = form.getAll("files")     as File[];
+  const form = await req.formData();
+  const client_name = form.get("client_name") as string;
+  const website_url = form.get("website_url") as string;
+  const files = form.getAll("files") as File[];
+  const audits = safeReadAudits(filePath);
+  const lastMd  = lastReportMarkdown(audits, website_url);
 
   const moisActuel = monthFr();
   let prompt = `# Contexte
-Client : **${client_name}**
-Site audité : **${website_url}**
+Client: **${client_name}**
+Site: **${website_url}**
+Mois en cours: **${moisActuel}**
 
-Tu es un expert SEO senior.  
-Analyse les exports CSV ci‑dessous et rédige un **rapport mensuel en Markdown** calqué sur le template suivant.
+## Règle de comparaison
+Voici le **rapport du mois précédent** (Markdown) :
 
----
-
-## Page de garde
-*Rapport SEO Mensuel – Client : ${client_name}*  
-Mois : ${moisActuel}  
-Produit par : **Kapsloc**
-
-## Table des matières
-1. Résumé exécutif  
-2. KPI globaux (score santé, volume pages, performances)  
-3. Problèmes SEO critiques  
-4. Balises Title & Meta (qualité + duplication)  
-5. Codes réponse HTTP & redirections  
-6. Sécurité (headers, mixed content)  
-7. Performances web (PageSpeed, CWV)  
-8. Priorisation 30 / 60 / 90 jours  
-9. Annexes (données brutes)
+<<<RAPPORT_MOIS_N-1>>>
+${lastMd || "_Aucun rapport précédent (mois #1)_"}
 
 ---
 
-### Détail attendu par section
+Analyse aussi les **exports CSV** ci‑dessous pour le mois actuel.
+Produis un **rapport Markdown** qui :
 
-*Section 3* : tableau « Impact | URL / Fichier | Recommandation ».  
-*Section 4* : stats duplication titres + meta, top 10 doublons.  
-*Section 5* : % 2xx / 3xx / 4xx / 5xx, liste 404 principales.  
-*Section 6* : HTTPS OK ?, HSTS, X‑Frame‑Options, liste de mixed content.  
-*Section 7* : tableau LCP / FID / CLS (mobile & desktop).  
-*Section 8* : bullet list des actions avec priorité 🔴🟠🟢.
-
-Réponds **uniquement** avec ce Markdown, aucun code block JSON.
+* Suit EXACTEMENT la structure PPT (page de garde, sommaire, chapitres 1‑7, annexes).  
+* Inclut dans chaque section un **tableau “Avant / Après”** quand c’est pertinent (ex. scores Lighthouse, % 4xx).  
+* Affiche les évolutions avec flèches et %.  
+* Met en surbrillance les évolutions majeures (> 5 %) avec **gras** et emoji 🔼 / 🔽.  
+* Termine par une **synthèse** de 5 puces « Progrès majeurs ce mois‑ci
 
 ---
 
-## Exports CSV à analyser
+Réponds UNIQUEMENT avec ce Markdown — pas de balises \`\`\`json.
+
+---
+
+## Exports CSV du mois
 `;
 
   for (const f of files) {
@@ -84,12 +80,15 @@ Réponds **uniquement** avec ce Markdown, aucun code block JSON.
     temperature: 0.4,
     max_tokens: 4000,
     messages: [
-      { role: "system", content: "Tu es un expert SEO senior. Réponds en Markdown pur – pas de balises ```json```." },
-      { role: "user",   content: prompt }
+      {
+        role: "system",
+        content:
+          "Tu es un expert SEO senior. Réponds en Markdown pur – pas de balises ```json```.",
+      },
+      { role: "user", content: prompt },
     ],
   });
   const markdown = choices[0].message.content!.trim();
-
 
   const record = {
     audit_id: crypto.randomUUID(),
@@ -98,7 +97,7 @@ Réponds **uniquement** avec ce Markdown, aucun code block JSON.
     analysis_date: new Date().toISOString(),
     markdown,
   };
-  const audits = safeReadAudits(filePath);
+  
   audits.unshift(record);
   const tmp = filePath + ".tmp";
   fs.writeFileSync(tmp, JSON.stringify(audits, null, 2), "utf-8");

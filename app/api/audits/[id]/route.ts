@@ -3,21 +3,25 @@ import fs from "fs";
 import path from "path";
 
 interface AuditProps {
-    params: Promise<{ id: string }>;
+  params: Promise<{ id: string }>;
 }
 const filePath = path.join(process.cwd(), "audits.json");
 
-export default async function Audit( { params }: Readonly<AuditProps> ) {
+export async function GET(_req: NextRequest, { params }: AuditProps) {
   const { id } = await params;
-  if (!fs.existsSync(filePath)) return NextResponse.json({ error: "No history" }, { status: 404 });
+  if (!fs.existsSync(filePath))
+    return NextResponse.json({ error: "No history" }, { status: 404 });
   const audits = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-  const audit  = audits.find((a: any) => a.audit_id === id);
-  if (!audit)  return NextResponse.json({ error: "Not found" }, { status: 404 });
+  const audit = audits.find((a: any) => a.audit_id === id);
+  if (!audit) return NextResponse.json({ error: "Not found" }, { status: 404 });
 
   return new NextResponse(audit.markdown, {
     headers: {
-      "Content-Type": "application/octet-stream",
-      "Content-Disposition": `attachment; filename="rapport_${audit.website_url.replace(/^https?:\/\/\//, "")}.md"`,
+      "Content-Type": "text/markdown; charset=utf-8",
+      "Content-Disposition": `attachment; filename="rapport_${audit.website_url.replace(
+        /^https?:\/\/\//,
+        ""
+      )}.md"`,
     },
   });
 }

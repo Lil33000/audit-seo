@@ -13,7 +13,7 @@ import Head from "next/head";
     /* force chaque Section sur page dédiée */
     section { break-inside: avoid; }
   }`}</style>
-</Head>
+</Head>;
 
 interface Props {
   resultRef: React.RefObject<HTMLDivElement>;
@@ -21,23 +21,40 @@ interface Props {
   formData: { website_url: string };
 }
 
-export default function ResultPanel({ resultRef, analysisResult, formData }: Props) {
+export default function ResultPanel({
+  resultRef,
+  analysisResult,
+  formData,
+}: Props) {
   const downloadPdf = useCallback(async () => {
     if (!resultRef.current) return;
-    const canvas = await html2canvas(resultRef.current, { scrollY: -window.scrollY, scale: 2 });
+    const canvas = await html2canvas(resultRef.current, {
+      scrollY: -window.scrollY,
+      scale: 2,
+    });
     const pdf = new jsPDF({ orientation: "p", unit: "pt", format: "a4" });
     const ratio = Math.min(
       pdf.internal.pageSize.getWidth() / canvas.width,
       pdf.internal.pageSize.getHeight() / canvas.height
     );
-    pdf.addImage(canvas, "PNG", 0, 0, canvas.width * ratio, canvas.height * ratio);
+    pdf.addImage(
+      canvas,
+      "PNG",
+      0,
+      0,
+      canvas.width * ratio,
+      canvas.height * ratio
+    );
     pdf.save(`audit_${formData.website_url.replace(/^https?:\/\/\//, "")}.pdf`);
   }, [formData.website_url, resultRef]);
 
   if (!analysisResult) return null;
 
   return (
-    <div ref={resultRef} className="bg-white rounded-2xl shadow-xl p-8 mt-8 space-y-6">
+    <div
+      ref={resultRef}
+      className="bg-white rounded-2xl shadow-xl p-8 mt-8 space-y-6"
+    >
       <h2 className="text-2xl font-bold text-gray-900">Rapport SEO</h2>
 
       {analysisResult.success ? (

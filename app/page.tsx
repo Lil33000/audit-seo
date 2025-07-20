@@ -6,8 +6,7 @@ import ResultPanel from "./_components/ResultPanel";
 import AuditHistory from "./_components/AuditHistory";
 import { AnalysisResult, Audit } from "../type/audit";
 import { formatDate } from "../lib/utils";
-
-
+import AuditHistoryWithFilters from "./_components/AuditHistoryWithFilters";
 
 export default function Page() {
   const [formData, setFormData] = useState({
@@ -18,7 +17,9 @@ export default function Page() {
   });
   const [files, setFiles] = useState<File[]>([]);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [analysisResult, setAnalysisResult] = useState<AnalysisResult | null>(null);
+  const [analysisResult, setAnalysisResult] = useState<AnalysisResult | null>(
+    null
+  );
   const [auditHistory, setAuditHistory] = useState<Audit[]>([]);
   const [activeTab, setActiveTab] = useState<"analyze" | "history">("analyze");
   const resultRef = useRef<HTMLDivElement>(null);
@@ -31,8 +32,7 @@ export default function Page() {
           const audits = await response.json();
           setAuditHistory(audits);
         }
-      } catch {
-      }
+      } catch {}
     })();
   }, []);
 
@@ -54,7 +54,7 @@ export default function Page() {
             reloadHistory={(audits) => setAuditHistory(audits)}
           />
         ) : (
-          <AuditHistory audits={auditHistory} formatDate={formatDate} />
+          <AuditHistoryWithFilters audits={auditHistory}  />
         )}
 
         {activeTab === "analyze" && analysisResult && (
